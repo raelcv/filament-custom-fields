@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        $morphs = config('custom-fields.morphs', 'model');
+        $tableName = config('custom-fields.table_names.custom_data', 'custom_data');
+
+        Schema::create($tableName, function (Blueprint $table) use ($morphs) {
+            $table->id();
+            $table->morphs($morphs, 'custom_data_model');
+            $table->foreignId('field_id')
+                ->references('id')
+                ->on('fields')
+                ->cascadeOnDelete();
+            $table->text('value')->nullable();
+            $table->timestamps();
+
+            if (config('custom-fields.soft_deletes', false)) {
+                $table->softDeletes();
+            }
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('custom_data');
+    }
+};

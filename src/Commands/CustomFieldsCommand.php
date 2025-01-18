@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace HungryBus\CustomFields\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class CustomFieldsCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'custom-fields';
 
     public $description = 'My command';
 

@@ -1,15 +1,15 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace HungryBus\CustomFields;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-class SkeletonPlugin implements Plugin
+class CustomFieldsPlugin implements Plugin
 {
     public function getId(): string
     {
-        return 'skeleton';
+        return 'custom-fields';
     }
 
     public function register(Panel $panel): void
