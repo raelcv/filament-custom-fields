@@ -20,59 +20,92 @@ composer require hungrybus/custom-fields
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="custom-fields-migrations"
+php artisan vendor:publish --tag="filament-custom-fields-config"
+php artisan vendor:publish --tag="filament-custom-fields-migrations"
+```
+
+After publishing the migration files, run the migrations:
+
+```bash
 php artisan migrate
 ```
 
-You can publish the config file with:
+## Configuration
 
-```bash
-php artisan vendor:publish --tag="custom-fields-config"
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="custom-fields-views"
-```
-
-This is the contents of the published config file:
+The package provides a configuration file located at `config/filament-custom-fields.php`. 
+In this file, you can specify the resources and models that will utilize custom fields. For example:
 
 ```php
+<?php
+
+use HungryBus\FilamentCustomFields\Resources\CustomFieldResource;
+use HungryBus\FilamentCustomFields\Resources\CustomFieldResponseResource;
+
 return [
+    'resources' => [
+        CustomFieldResource::class,
+        CustomFieldResponseResource::class,
+    ],
+    
+    // Models that will have custom fields
+    'models' => [
+        // \App\Models\YourModel::class => 'your_model',
+    ],
+    
+    'navigation_group' => 'Custom Fields',
+    
+    'custom_fields_label' => 'Custom Fields',
+    
+    'custom_field_responses_label' => 'Custom Field Responses',
 ];
 ```
-
 ## Usage
 
+### Adding Custom Fields to a resource
+
+To integrate custom fields into a Filament resource, follow these steps:
+1. Create or Edit a Resource: In your Filament resource, use the `FilamentCustomFieldsHelper` to handle custom fields.
+2. Modify the `getFormSchema` Method: Extend the form schema to include custom fields.
+
 ```php
-$customFields = new HungryBus\CustomFields();
-echo $customFields->echoPhrase('Hello, HungryBus!');
+use HungryBus\FilamentCustomFields\CustomFields\FilamentCustomFieldsHelper;
+
+protected function getFormSchema(): array
+{
+    return [
+        // Your existing fields
+        ...FilamentCustomFieldsHelper::custom_fields_form($this->getModel(), data_get($this->record, 'id')),
+    ];
+}
 ```
 
-## Testing
-
-```bash
-composer test
+3. Handle Custom Field Data: After creating or saving a record, ensure that custom field data is processed.
+```php
+protected function afterSave()
+{
+    FilamentCustomFieldsHelper::handle_custom_fields_request($this->data, $this->getModel(), $this->record->id);
+}
 ```
 
-## Changelog
+### Displaying Custom Field Responses
+To display custom field responses in a resource's table, add the custom fields column:
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+```php
+use HungryBus\FilamentCustomFields\CustomFields\FilamentCustomFieldsHelper;
 
-## Contributing
-
-Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+public static function table(Table $table): Table
+{
+    return $table
+        ->columns([
+            // Your existing columns
+            FilamentCustomFieldsHelper::custom_fields_column(),
+        ]);
+}
+```
 
 ## Credits
-
-- [HungryBus](https://github.com/HungryBus)
-- [All Contributors](../../contributors)
+This package is developed and maintained by HungryBus.
 
 ## License
-
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+```
