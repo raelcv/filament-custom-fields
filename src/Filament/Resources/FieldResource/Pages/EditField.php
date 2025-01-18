@@ -26,11 +26,11 @@ class EditField extends EditRecord
 
     protected function mutateFormDataBeforeFill(array $data): array
     {
-        if (isset($data['designation']) && !empty($this->record?->designation)) {
+        if (isset($data['designation']) && ! empty($this->record?->designation)) {
             $data['designation'] = $this->record?->designation;
         }
 
-        if (!empty($this->record->field_type)) {
+        if (! empty($this->record->field_type)) {
             $data['has_options'] = $this->record->field_type->hasOptions();
         }
 
