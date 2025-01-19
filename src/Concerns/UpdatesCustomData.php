@@ -38,7 +38,7 @@ trait UpdatesCustomData
         }
 
         foreach ($customData as $key => $value) {
-            if (!$fields->contains('name', $key)) {
+            if (! $fields->contains('name', $key)) {
                 continue;
             }
 

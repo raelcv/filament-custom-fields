@@ -35,7 +35,7 @@ trait CreatesWithCustomData
         }
 
         foreach ($this->data['custom_data'] ?? [] as $key => $value) {
-            if (!$fields->contains('name', $key)) {
+            if (! $fields->contains('name', $key)) {
                 continue;
             }
 
