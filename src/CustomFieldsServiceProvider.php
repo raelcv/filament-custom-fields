@@ -125,7 +125,7 @@ class CustomFieldsServiceProvider extends PackageServiceProvider
     {
         return [
             'create_custom_data_tables',
-            'created_fields_tables',
+            'create_fields_tables',
         ];
     }
 }
