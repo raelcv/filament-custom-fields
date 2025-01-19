@@ -15,9 +15,14 @@ use Vicmans\FilamentNumberInput\NumberInput;
 
 class FieldResource extends Resource
 {
+    public static function getTenantOwnershipRelationshipName(): string
+    {
+        return config('custom-fields.tenant_relationship', 'tenantRelationship');
+    }
+
     public static function getModel(): string
     {
-        return config('custom-fields.models.field');
+        return config('custom-fields.models.custom_field', Field::class);
     }
 
     public static function form(Form $form): Form
