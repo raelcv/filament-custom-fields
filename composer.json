@@ -1,15 +1,15 @@
 {
-    "name": "hungrybus/custom-fields",
+    "name": "hungrybus/filament-custom-fields",
     "description": "This plugin allows to create custom fields via front-end",
     "keywords": [
         "HungryBus",
         "laravel",
         "custom-fields"
     ],
-    "homepage": "https://github.com/hungrybus/custom-fields",
+    "homepage": "https://github.com/hungrybus/filament-custom-fields",
     "support": {
-        "issues": "https://github.com/hungrybus/custom-fields/issues",
-        "source": "https://github.com/hungrybus/custom-fields"
+        "issues": "https://github.com/hungrybus/filament-custom-fields/issues",
+        "source": "https://github.com/hungrybus/filament-custom-fields"
     },
     "license": "MIT",
     "authors": [

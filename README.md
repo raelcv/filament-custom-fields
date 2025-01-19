@@ -1,9 +1,9 @@
 # This plugin allows to create custom fields via front-end
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/hungrybus/custom-fields.svg?style=flat-square)](https://packagist.org/packages/hungrybus/custom-fields)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/hungrybus/custom-fields/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/hungrybus/custom-fields/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/hungrybus/custom-fields/fix-php-code-styling.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/hungrybus/custom-fields/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/hungrybus/custom-fields.svg?style=flat-square)](https://packagist.org/packages/hungrybus/custom-fields)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/hungrybus/filament-custom-fields.svg?style=flat-square)](https://packagist.org/packages/hungrybus/filament-custom-fields)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/hungrybus/filament-custom-fields/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/hungrybus/filament-custom-fields/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/hungrybus/filament-custom-fields/fix-php-code-styling.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/hungrybus/filament-custom-fields/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/hungrybus/filament-custom-fields.svg?style=flat-square)](https://packagist.org/packages/hungrybus/filament-custom-fields)
 
 
 
@@ -14,7 +14,7 @@ Filament Custom Fields is a plugin for Laravel Filament that allows you to add c
 You can install the package via composer:
 
 ```bash
-composer require hungrybus/custom-fields
+composer require hungrybus/filament-custom-fields
 ```
 
 You can publish and run the migrations with:

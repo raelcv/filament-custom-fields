@@ -31,7 +31,7 @@ class CustomFieldsServiceProvider extends PackageServiceProvider
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub('hungrybus/custom-fields');
+                    ->askToStarRepoOnGitHub('hungrybus/filament-custom-fields');
             });
 
         $configFileName = $package->shortName();
@@ -86,7 +86,7 @@ class CustomFieldsServiceProvider extends PackageServiceProvider
 
     protected function getAssetPackageName(): ?string
     {
-        return 'hungrybus/custom-fields';
+        return 'hungrybus/filament-custom-fields';
     }
 
     /**
