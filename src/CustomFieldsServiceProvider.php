@@ -124,8 +124,8 @@ class CustomFieldsServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_custom_data_tables',
             'create_fields_tables',
+            'create_custom_data_tables',
         ];
     }
 }
