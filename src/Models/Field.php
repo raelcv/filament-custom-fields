@@ -37,6 +37,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Field extends Model
 {
+    use HasTenancy;
+
     protected $guarded = [];
 
     protected $casts = [
@@ -48,15 +50,6 @@ class Field extends Model
         parent::__construct($attributes);
 
         $this->table = config('custom-fields.table_names.custom_fields', 'fields');
-
-        if (config('custom-fields.use_tenants', false)) {
-            $this->useTenantTrait();
-        }
-    }
-
-    protected function useTenantTrait(): void
-    {
-        class_uses($this)[] = HasTenancy::class;
     }
 
     /*
