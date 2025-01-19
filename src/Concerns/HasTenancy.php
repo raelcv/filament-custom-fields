@@ -3,7 +3,6 @@
 namespace HungryBus\CustomFields\Concerns;
 
 use Illuminate\Database\Eloquent\RelationNotFoundException;
-use function Laravel\Prompts\confirm;
 
 trait HasTenancy
 {
