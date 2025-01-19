@@ -14,7 +14,7 @@ trait HasTenancy
 
         return $this->belongsTo(
             config('custom-fields.models.tenant_model'),
-            config('custom-fields.models.tenant_model')::getForeignKey(),
+            config('custom-fields.tenant_key', 'tenant_id'),
         );
     }
 }

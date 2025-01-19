@@ -8,6 +8,7 @@ return [
         'custom_data' => \HungryBus\CustomFields\Models\CustomData::class,
         'custom_field' => \HungryBus\CustomFields\Models\Field::class,
         'field_option' => \HungryBus\CustomFields\Models\FieldOption::class,
+        'tenant_model' => null,
     ],
 
     'resources' => [
@@ -54,6 +55,5 @@ return [
      */
     'use_tenants' => false,
     'tenant_key' => 'tenant_id',
-    'tenant_model' => null,
     'tenant_relationship' => 'company',
 ];
