@@ -53,4 +53,7 @@ return [
      * Whether to use multi-tenancy
      */
     'use_tenants' => false,
+    'tenant_key' => 'tenant_id',
+    'tenant_model' => null,
+    'tenant_relationship' => 'company',
 ];
