@@ -5,8 +5,6 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/hungrybus/filament-custom-fields/fix-php-code-styling.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/hungrybus/filament-custom-fields/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/hungrybus/filament-custom-fields.svg?style=flat-square)](https://packagist.org/packages/hungrybus/filament-custom-fields)
 
-
-
 Filament Custom Fields is a plugin for Laravel Filament that allows you to add custom fields to your Filament resources.
 
 ## Installation
