@@ -96,7 +96,7 @@ class FieldsService
             throw new \InvalidArgumentException('Model must be an instance of ' . Model::class);
         }
 
-        if (! array_key_exists($model, config('custom-fields.designations'))) {
+        if (! array_key_exists($model, config('custom-fields.field_designations'))) {
             return $columns;
         }
 

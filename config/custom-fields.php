@@ -10,6 +10,10 @@ return [
         'field_option' => \HungryBus\CustomFields\Models\FieldOption::class,
     ],
 
+    'resources' => [
+        'custom_fields' => \HungryBus\CustomFields\Filament\Resources\FieldResource::class,
+    ],
+
     /*
      * The table names to use for custom data
      */
@@ -39,20 +43,14 @@ return [
     ],
 
     /*
-     * Field designations
-     *
-     * Example:
-     * [
-     *     SomeModel::class => 'SomeModel',
-     *     SomeOtherModel::class => 'SomeOtherModel',
-     * ];
+     * Field designations: This is used to display the model name in the field type dropdown
      */
     'field_designations' => [
-
+        // \App\Models\User::class => 'User',
     ],
 
     /*
-     * Whether to use multi-tenant config
+     * Whether to use multi-tenancy
      */
     'use_tenants' => false,
 ];

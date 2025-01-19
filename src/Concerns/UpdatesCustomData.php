@@ -4,6 +4,7 @@ namespace HungryBus\CustomFields\Concerns;
 
 use Filament\Facades\Filament;
 use HungryBus\CustomFields\Models\CustomData;
+use HungryBus\CustomFields\Models\Field;
 use HungryBus\CustomFields\Services\CustomDataService;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,12 +27,18 @@ trait UpdatesCustomData
 
     protected function saveModelData(Model $model, array $customData): void
     {
-        $company = Filament::getTenant();
-        $fields = $company->fields;
+        $fieldModel = config('custom-fields.models.custom_field', Field::class);
         $customDataModel = config('custom-fields.models.custom_data', CustomData::class);
 
+        if (config('custom-fields.use_tenants')) {
+            $tenant = Filament::getTenant();
+            $fields = $tenant->fields()->model(get_class($model))->get();
+        } else {
+            $fields = $fieldModel::model(get_class($model))->get();
+        }
+
         foreach ($customData as $key => $value) {
-            if (! $fields->contains('name', $key)) {
+            if (!$fields->contains('name', $key)) {
                 continue;
             }
 

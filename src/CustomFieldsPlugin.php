@@ -14,7 +14,8 @@ class CustomFieldsPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        //
+        $panel
+            ->resources(config('custom-fields.resources'));
     }
 
     public function boot(Panel $panel): void
