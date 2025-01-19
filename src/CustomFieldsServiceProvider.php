@@ -8,7 +8,6 @@ use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
-use HungryBus\CustomFields\Commands\CustomFieldsCommand;
 use HungryBus\CustomFields\Testing\TestsCustomFields;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
@@ -25,7 +24,6 @@ class CustomFieldsServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package->name(static::$name)
-            ->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
@@ -100,16 +98,6 @@ class CustomFieldsServiceProvider extends PackageServiceProvider
     }
 
     /**
-     * @return array<class-string>
-     */
-    protected function getCommands(): array
-    {
-        return [
-            CustomFieldsCommand::class,
-        ];
-    }
-
-    /**
      * @return array<string>
      */
     protected function getIcons(): array
@@ -139,7 +127,8 @@ class CustomFieldsServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_custom-fields_table',
+            'create_custom_data_tables',
+            'created_fields_tables'
         ];
     }
 }
