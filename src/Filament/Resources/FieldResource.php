@@ -29,7 +29,7 @@ class FieldResource extends Resource
                 Forms\Components\Section::make(trans('custom-fields::custom-fields.designation'))
                     ->schema([
                         Forms\Components\Select::make('designation')
-                            ->label(trans('custom-fields::custom-fields.custom-fields.designation'))
+                            ->label(trans('custom-fields::custom-fields.designation'))
                             ->options(config('custom-fields.field_designations'))
                             ->required(),
                     ]),
