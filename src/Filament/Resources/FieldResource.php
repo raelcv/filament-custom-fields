@@ -17,6 +17,8 @@ class FieldResource extends Resource
 {
     protected static ?string $tenantOwnershipRelationshipName = 'tenantRelationship';
 
+    protected static ?string $navigationIcon = 'heroicon-c-numbered-list';
+
     public static function getModel(): string
     {
         return config('custom-fields.models.custom_field', Field::class);
