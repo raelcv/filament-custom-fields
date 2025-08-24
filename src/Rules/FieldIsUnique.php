@@ -31,11 +31,11 @@ class FieldIsUnique implements ValidationRule
         ! Field::where('name', Str::slug($value))
             ->when(
                 config('custom-fields.use_tenants'),
-                fn (Builder $query) => $query->where('tenant_id', $this->tenantId)
+                fn(Builder $query) => $query->where(config('custom-fields.tenant_key', 'tenant_id'), $this->tenantId)
             )
             ->when(
                 $this->fieldId,
-                fn (Builder $query) => $query->where('id', '!=', $this->fieldId)
+                fn(Builder $query) => $query->where('id', '!=', $this->fieldId)
             )
             ->count() ?: $fail($this->message());
     }

@@ -37,7 +37,7 @@ return new class extends Migration
             $table->string('designation')->nullable();
 
             if ($tenantColumns) {
-                $table->foreignId('tenant_id')
+                $table->foreignId(config('custom-fields.tenant_key', 'tenant_id'))
                     ->nullable()
                     ->constrained()
                     ->cascadeOnDelete();

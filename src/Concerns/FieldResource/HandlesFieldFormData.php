@@ -12,7 +12,7 @@ trait HandlesFieldFormData
     protected function prepareData(array $data): array
     {
         if (config('custom-fields.use_tenants')) {
-            $data['tenant_id'] = Filament::getTenant()->getKey();
+            $data[config('custom-fields.tenant_key', 'tenant_id')] = Filament::getTenant()->getKey();
         }
         $data['name'] = Str::slug($data['label']);
 
@@ -22,7 +22,7 @@ trait HandlesFieldFormData
     protected function validateFieldData(array $data, ?Model $record = null): void
     {
         validator($data, [
-            'name' => ['required', new FieldIsUnique($record?->getKey(), $data['tenant_id'] ?? null)],
+            'name' => ['required', new FieldIsUnique($record?->getKey(), $data[config('custom-fields.tenant_key', 'tenant_id')] ?? null)],
         ])->validate();
     }
 }
